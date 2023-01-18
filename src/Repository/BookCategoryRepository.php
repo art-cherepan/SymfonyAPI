@@ -14,7 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method BookCategory[]    findAll()
  * @method BookCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BookRepository extends ServiceEntityRepository
+class BookCategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
