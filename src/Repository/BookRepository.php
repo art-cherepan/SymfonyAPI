@@ -42,7 +42,7 @@ class BookRepository extends ServiceEntityRepository
 
     /**
      * @param int $id
-     * @return Book
+     * @return Book[]
      */
     public function findBooksByCategoryId(int $id): array
     {

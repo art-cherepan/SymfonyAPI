@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\BookCategoryRepository;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -29,7 +28,7 @@ class Book
     private array $authors;
 
     #[ORM\Column(type: 'date')]
-    private DateTimeInterface $publicationDate;
+    private \DateTimeInterface $publicationDate;
 
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $meap;
@@ -48,6 +47,13 @@ class Book
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getTitle(): ?string
@@ -70,6 +76,7 @@ class Book
     public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
+
         return $this;
     }
 
@@ -81,6 +88,7 @@ class Book
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
         return $this;
     }
 
@@ -92,17 +100,19 @@ class Book
     public function setAuthors(array $authors): self
     {
         $this->authors = $authors;
+
         return $this;
     }
 
-    public function getPublicationDate(): DateTimeInterface
+    public function getPublicationDate(): \DateTimeInterface
     {
         return $this->publicationDate;
     }
 
-    public function setPublicationDate(DateTimeInterface $publicationDate): self
+    public function setPublicationDate(\DateTimeInterface $publicationDate): self
     {
         $this->publicationDate = $publicationDate;
+
         return $this;
     }
 
@@ -114,6 +124,7 @@ class Book
     public function setMeap(bool $meap): self
     {
         $this->meap = $meap;
+
         return $this;
     }
 
@@ -127,11 +138,13 @@ class Book
 
     /**
      * @param Collection<BookCategory> $categories
+     *
      * @return $this
      */
     public function setCategories(Collection $categories): self
     {
         $this->categories = $categories;
+
         return $this;
     }
 }
